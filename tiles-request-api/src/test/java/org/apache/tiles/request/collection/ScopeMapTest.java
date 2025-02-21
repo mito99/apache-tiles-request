@@ -20,9 +20,13 @@
  */
 package org.apache.tiles.request.collection;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Enumeration;
 import java.util.LinkedHashMap;
@@ -82,7 +86,8 @@ public class ScopeMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.ScopeMap#keySet()}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.ScopeMap#keySet()}.
      */
     @Test
     public void testKeySet() {
@@ -92,7 +97,8 @@ public class ScopeMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.ScopeMap#put(java.lang.String, java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.ScopeMap#put(java.lang.String, java.lang.Object)}.
      */
     @Test
     public void testPutStringObject() {
@@ -105,7 +111,8 @@ public class ScopeMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.ScopeMap#putAll(java.util.Map)}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.ScopeMap#putAll(java.util.Map)}.
      */
     @Test
     public void testPutAllMapOfQextendsStringQextendsObject() {
@@ -122,7 +129,8 @@ public class ScopeMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.ScopeMap#remove(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.ScopeMap#remove(java.lang.Object)}.
      */
     @Test
     public void testRemoveObject() {

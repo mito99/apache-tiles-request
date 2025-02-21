@@ -20,22 +20,27 @@
  */
 package org.apache.tiles.request.servlet;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Collection;
 import java.util.Locale;
 
-import javax.servlet.ServletContext;
-
 import org.apache.tiles.request.ApplicationResource;
 import org.apache.tiles.request.collection.ReadOnlyEnumerationMap;
 import org.apache.tiles.request.collection.ScopeMap;
 import org.junit.Before;
 import org.junit.Test;
+
+import jakarta.servlet.ServletContext;
 
 /**
  * Tests {@link ServletApplicationContext}.
@@ -64,7 +69,8 @@ public class ServletApplicationContextTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletApplicationContext#getContext()}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletApplicationContext#getContext()}.
      */
     @Test
     public void testGetContext() {
@@ -74,7 +80,8 @@ public class ServletApplicationContextTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletApplicationContext#getApplicationScope()}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletApplicationContext#getApplicationScope()}.
      */
     @Test
     public void testGetApplicationScope() {
@@ -84,7 +91,8 @@ public class ServletApplicationContextTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletApplicationContext#getInitParams()}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletApplicationContext#getInitParams()}.
      */
     @Test
     public void testGetInitParams() {
@@ -94,7 +102,9 @@ public class ServletApplicationContextTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletApplicationContext#getResource(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletApplicationContext#getResource(java.lang.String)}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -123,6 +133,7 @@ public class ServletApplicationContextTest {
 
     /**
      * Test method for {@link ServletApplicationContext#getResources(String)}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test

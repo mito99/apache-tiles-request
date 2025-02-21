@@ -22,9 +22,9 @@ package org.apache.tiles.request.servlet.extractor;
 
 import java.util.Enumeration;
 
-import javax.servlet.ServletContext;
-
 import org.apache.tiles.request.attribute.AttributeExtractor;
+
+import jakarta.servlet.ServletContext;
 
 /**
  * Extract attributes from application scope.

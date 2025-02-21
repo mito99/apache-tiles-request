@@ -20,9 +20,14 @@
  */
 package org.apache.tiles.request.collection;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -58,7 +63,8 @@ public class HeaderValuesMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.HeaderValuesMap#hashCode()}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.HeaderValuesMap#hashCode()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -96,7 +102,8 @@ public class HeaderValuesMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.HeaderValuesMap#clear()}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.HeaderValuesMap#clear()}.
      */
     @Test(expected = UnsupportedOperationException.class)
     public void testClear() {
@@ -104,7 +111,8 @@ public class HeaderValuesMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.HeaderValuesMap#containsKey(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.HeaderValuesMap#containsKey(java.lang.Object)}.
      */
     @Test
     public void testContainsKey() {
@@ -118,7 +126,8 @@ public class HeaderValuesMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.HeaderValuesMap#containsValue(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.HeaderValuesMap#containsValue(java.lang.Object)}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -148,12 +157,13 @@ public class HeaderValuesMapTest {
         expect(values2.hasMoreElements()).andReturn(false);
 
         replay(extractor, keys, values1, values2);
-        assertTrue(map.containsValue(new String[] {"value2", "value3"}));
+        assertTrue(map.containsValue(new String[] { "value2", "value3" }));
         verify(extractor, keys, values1, values2);
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.HeaderValuesMap#containsValue(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.HeaderValuesMap#containsValue(java.lang.Object)}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -182,12 +192,13 @@ public class HeaderValuesMapTest {
         expect(values2.hasMoreElements()).andReturn(false);
 
         replay(extractor, keys, values1, values2);
-        assertFalse(map.containsValue(new String[] {"value2", "value4"}));
+        assertFalse(map.containsValue(new String[] { "value2", "value4" }));
         verify(extractor, keys, values1, values2);
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.HeaderValuesMap#equals(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.HeaderValuesMap#equals(java.lang.Object)}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -237,7 +248,8 @@ public class HeaderValuesMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.HeaderValuesMap#get(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.HeaderValuesMap#get(java.lang.Object)}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -252,12 +264,13 @@ public class HeaderValuesMapTest {
         expect(values2.hasMoreElements()).andReturn(false);
 
         replay(extractor, values2);
-        assertArrayEquals(new String[] {"value2", "value3"}, map.get("two"));
+        assertArrayEquals(new String[] { "value2", "value3" }, map.get("two"));
         verify(extractor, values2);
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.HeaderValuesMap#isEmpty()}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.HeaderValuesMap#isEmpty()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -273,7 +286,8 @@ public class HeaderValuesMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.HeaderValuesMap#isEmpty()}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.HeaderValuesMap#isEmpty()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -289,7 +303,8 @@ public class HeaderValuesMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.HeaderValuesMap#keySet()}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.HeaderValuesMap#keySet()}.
      */
     @Test
     public void testKeySet() {
@@ -303,11 +318,12 @@ public class HeaderValuesMapTest {
      */
     @Test(expected = UnsupportedOperationException.class)
     public void testPut() {
-        map.put("one", new String[] {"value1", "value2"});
+        map.put("one", new String[] { "value1", "value2" });
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.HeaderValuesMap#putAll(java.util.Map)}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.HeaderValuesMap#putAll(java.util.Map)}.
      */
     @Test(expected = UnsupportedOperationException.class)
     public void testPutAll() {
@@ -315,7 +331,8 @@ public class HeaderValuesMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.HeaderValuesMap#remove(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.HeaderValuesMap#remove(java.lang.Object)}.
      */
     @Test(expected = UnsupportedOperationException.class)
     public void testRemove() {
@@ -323,7 +340,8 @@ public class HeaderValuesMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.HeaderValuesMap#size()}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.HeaderValuesMap#size()}.
      */
     @SuppressWarnings("unchecked")
     @Test

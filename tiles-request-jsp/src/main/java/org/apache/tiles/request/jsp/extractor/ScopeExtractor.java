@@ -22,9 +22,9 @@ package org.apache.tiles.request.jsp.extractor;
 
 import java.util.Enumeration;
 
-import javax.servlet.jsp.JspContext;
-
 import org.apache.tiles.request.attribute.AttributeExtractor;
+
+import jakarta.servlet.jsp.JspContext;
 
 /**
  * Extracts attributes from a numbered scope from {@link JspContext}.
@@ -47,7 +47,7 @@ public class ScopeExtractor implements AttributeExtractor {
      * Constructor.
      *
      * @param context The JSP context.
-     * @param scope The scope number.
+     * @param scope   The scope number.
      */
     public ScopeExtractor(JspContext context, int scope) {
         this.context = context;

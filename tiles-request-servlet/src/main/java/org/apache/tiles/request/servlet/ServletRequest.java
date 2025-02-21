@@ -30,21 +30,21 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.tiles.request.AbstractClientRequest;
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.attribute.Addable;
 import org.apache.tiles.request.collection.HeaderValuesMap;
 import org.apache.tiles.request.collection.ReadOnlyEnumerationMap;
 import org.apache.tiles.request.collection.ScopeMap;
+import org.apache.tiles.request.servlet.extractor.HeaderExtractor;
 import org.apache.tiles.request.servlet.extractor.ParameterExtractor;
 import org.apache.tiles.request.servlet.extractor.RequestScopeExtractor;
-import org.apache.tiles.request.servlet.extractor.HeaderExtractor;
 import org.apache.tiles.request.servlet.extractor.SessionScopeExtractor;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Servlet-based implementation of the TilesApplicationContext interface.
@@ -56,8 +56,8 @@ public class ServletRequest extends AbstractClientRequest {
     /**
      * The native available scopes: request, session and application.
      */
-    private static final List<String> SCOPES
-            = Collections.unmodifiableList(Arrays.asList(REQUEST_SCOPE, "session", APPLICATION_SCOPE));
+    private static final List<String> SCOPES = Collections
+            .unmodifiableList(Arrays.asList(REQUEST_SCOPE, "session", APPLICATION_SCOPE));
 
     /**
      * The request object to use.
@@ -80,51 +80,59 @@ public class ServletRequest extends AbstractClientRequest {
     private PrintWriter writer;
 
     /**
-     * <p>The lazily instantiated <code>Map</code> of header name-value
-     * combinations (immutable).</p>
+     * <p>
+     * The lazily instantiated <code>Map</code> of header name-value
+     * combinations (immutable).
+     * </p>
      */
     private Map<String, String> header = null;
 
     /**
-     * <p>The lazily instantiated <code>Map</code> of header name-value
-     * combinations (write-only).</p>
+     * <p>
+     * The lazily instantiated <code>Map</code> of header name-value
+     * combinations (write-only).
+     * </p>
      */
     private Addable<String> responseHeaders = null;
 
-
     /**
-     * <p>The lazily instantitated <code>Map</code> of header name-values
-     * combinations (immutable).</p>
+     * <p>
+     * The lazily instantitated <code>Map</code> of header name-values
+     * combinations (immutable).
+     * </p>
      */
     private Map<String, String[]> headerValues = null;
 
-
     /**
-     * <p>The lazily instantiated <code>Map</code> of request
-     * parameter name-value.</p>
+     * <p>
+     * The lazily instantiated <code>Map</code> of request
+     * parameter name-value.
+     * </p>
      */
     private Map<String, String> param = null;
 
-
     /**
-     * <p>The lazily instantiated <code>Map</code> of request scope
-     * attributes.</p>
+     * <p>
+     * The lazily instantiated <code>Map</code> of request scope
+     * attributes.
+     * </p>
      */
     private Map<String, Object> requestScope = null;
 
     /**
-     * <p>The lazily instantiated <code>Map</code> of session scope
-     * attributes.</p>
+     * <p>
+     * The lazily instantiated <code>Map</code> of session scope
+     * attributes.
+     * </p>
      */
     private Map<String, Object> sessionScope = null;
-
 
     /**
      * Creates a new instance of ServletTilesRequestContext.
      *
      * @param applicationContext The application context.
-     * @param request The request object.
-     * @param response The response object.
+     * @param request            The request object.
+     * @param response           The response object.
      */
     public ServletRequest(
             ApplicationContext applicationContext,
@@ -164,7 +172,6 @@ public class ServletRequest extends AbstractClientRequest {
 
     }
 
-
     /** {@inheritDoc} */
     public Map<String, String> getParam() {
 
@@ -175,7 +182,6 @@ public class ServletRequest extends AbstractClientRequest {
 
     }
 
-
     /** {@inheritDoc} */
     @SuppressWarnings("unchecked")
     public Map<String, String[]> getParamValues() {
@@ -184,11 +190,11 @@ public class ServletRequest extends AbstractClientRequest {
 
     @Override
     public Map<String, Object> getContext(String scope) {
-        if(REQUEST_SCOPE.equals(scope)){
+        if (REQUEST_SCOPE.equals(scope)) {
             return getRequestScope();
-        }else if("session".equals(scope)){
+        } else if ("session".equals(scope)) {
             return getSessionScope();
-        }else if(APPLICATION_SCOPE.equals(scope)){
+        } else if (APPLICATION_SCOPE.equals(scope)) {
             return getApplicationScope();
         }
         throw new IllegalArgumentException(scope + " does not exist. Call getAvailableScopes() first to check.");
@@ -203,7 +209,6 @@ public class ServletRequest extends AbstractClientRequest {
         return (requestScope);
 
     }
-
 
     /** {@inheritDoc} */
     public Map<String, Object> getSessionScope() {
@@ -228,7 +233,6 @@ public class ServletRequest extends AbstractClientRequest {
             forward(path);
         }
     }
-
 
     /** {@inheritDoc} */
     public void doInclude(String path) throws IOException {

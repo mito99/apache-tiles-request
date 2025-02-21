@@ -20,16 +20,19 @@
  */
 package org.apache.tiles.request.jsp.extractor;
 
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Enumeration;
 
-import javax.servlet.jsp.JspContext;
-import javax.servlet.jsp.PageContext;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import jakarta.servlet.jsp.JspContext;
+import jakarta.servlet.jsp.PageContext;
 
 /**
  * Tests {@link ScopeExtractor}.
@@ -58,7 +61,8 @@ public class ScopeExtractorTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#removeValue(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#removeValue(java.lang.String)}.
      */
     @Test
     public void testRemoveValue() {
@@ -70,7 +74,8 @@ public class ScopeExtractorTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#getKeys()}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#getKeys()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -84,7 +89,8 @@ public class ScopeExtractorTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#getValue(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#getValue(java.lang.String)}.
      */
     @Test
     public void testGetValue() {

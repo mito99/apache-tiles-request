@@ -20,13 +20,12 @@
  */
 package org.apache.tiles.request;
 
+import static org.easymock.EasyMock.createMock;
 import static org.easymock.EasyMock.expect;
-import static org.easymock.classextension.EasyMock.createMock;
-import static org.easymock.classextension.EasyMock.replay;
-import static org.easymock.classextension.EasyMock.verify;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
@@ -43,7 +42,8 @@ import org.junit.Test;
 /**
  * Tests {@link DefaultRequestWrapper}.
  *
- * @version $Rev: 1215009 $ $Date: 2011-12-16 01:32:31 +0100 (Fri, 16 Dec 2011) $
+ * @version $Rev: 1215009 $ $Date: 2011-12-16 01:32:31 +0100 (Fri, 16 Dec 2011)
+ *          $
  */
 public class DefaultRequestWrapperTest {
 
@@ -69,7 +69,8 @@ public class DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DefaultRequestWrapper#getWrappedRequest()}.
+     * Test method for
+     * {@link org.apache.tiles.request.DefaultRequestWrapper#getWrappedRequest()}.
      */
     @Test
     public void testGetWrappedRequest() {
@@ -82,7 +83,8 @@ public class DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DefaultRequestWrapper#getHeader()}.
+     * Test method for
+     * {@link org.apache.tiles.request.DefaultRequestWrapper#getHeader()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -99,7 +101,8 @@ public class DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DefaultRequestWrapper#getResponseHeaders()}.
+     * Test method for
+     * {@link org.apache.tiles.request.DefaultRequestWrapper#getResponseHeaders()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -116,7 +119,8 @@ public class DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DefaultRequestWrapper#getHeaderValues()}.
+     * Test method for
+     * {@link org.apache.tiles.request.DefaultRequestWrapper#getHeaderValues()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -133,7 +137,8 @@ public class DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DefaultRequestWrapper#getContext(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.DefaultRequestWrapper#getContext(java.lang.String)}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -151,7 +156,8 @@ public class DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DefaultRequestWrapper#getAvailableScopes()}.
+     * Test method for
+     * {@link org.apache.tiles.request.DefaultRequestWrapper#getAvailableScopes()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -161,7 +167,7 @@ public class DefaultRequestWrapperTest {
 
         RequestWrapper request = createRequestWrapper(wrappedRequest);
 
-        String[] scopes = new String[] {"one", "two", "three"};
+        String[] scopes = new String[] { "one", "two", "three" };
         expect(wrappedRequest.getAvailableScopes()).andReturn(Arrays.asList(scopes));
 
         replay(wrappedRequest, context);
@@ -170,7 +176,8 @@ public class DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DefaultRequestWrapper#getApplicationContext()}.
+     * Test method for
+     * {@link org.apache.tiles.request.DefaultRequestWrapper#getApplicationContext()}.
      */
     @Test
     public void testGetApplicationContext() {
@@ -186,7 +193,9 @@ public class DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DefaultRequestWrapper#getOutputStream()}.
+     * Test method for
+     * {@link org.apache.tiles.request.DefaultRequestWrapper#getOutputStream()}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -203,7 +212,9 @@ public class DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DefaultRequestWrapper#getWriter()}.
+     * Test method for
+     * {@link org.apache.tiles.request.DefaultRequestWrapper#getWriter()}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -220,7 +231,9 @@ public class DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DefaultRequestWrapper#getPrintWriter()}.
+     * Test method for
+     * {@link org.apache.tiles.request.DefaultRequestWrapper#getPrintWriter()}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -237,7 +250,8 @@ public class DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DefaultRequestWrapper#isResponseCommitted()}.
+     * Test method for
+     * {@link org.apache.tiles.request.DefaultRequestWrapper#isResponseCommitted()}.
      */
     @Test
     public void testIsResponseCommitted() {
@@ -252,7 +266,8 @@ public class DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DefaultRequestWrapper#getParam()}.
+     * Test method for
+     * {@link org.apache.tiles.request.DefaultRequestWrapper#getParam()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -269,7 +284,8 @@ public class DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DefaultRequestWrapper#getParamValues()}.
+     * Test method for
+     * {@link org.apache.tiles.request.DefaultRequestWrapper#getParamValues()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -286,7 +302,8 @@ public class DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DefaultRequestWrapper#getRequestLocale()}.
+     * Test method for
+     * {@link org.apache.tiles.request.DefaultRequestWrapper#getRequestLocale()}.
      */
     @Test
     public void testGetRequestLocale() {
@@ -302,7 +319,8 @@ public class DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DefaultRequestWrapper#isUserInRole(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.DefaultRequestWrapper#isUserInRole(java.lang.String)}.
      */
     @Test
     public void testIsUserInRole() {

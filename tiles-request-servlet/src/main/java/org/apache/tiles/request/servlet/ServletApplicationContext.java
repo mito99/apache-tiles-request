@@ -27,8 +27,6 @@ import java.util.Collection;
 import java.util.Locale;
 import java.util.Map;
 
-import javax.servlet.ServletContext;
-
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.ApplicationResource;
 import org.apache.tiles.request.collection.ReadOnlyEnumerationMap;
@@ -36,6 +34,8 @@ import org.apache.tiles.request.collection.ScopeMap;
 import org.apache.tiles.request.locale.URLApplicationResource;
 import org.apache.tiles.request.servlet.extractor.ApplicationScopeExtractor;
 import org.apache.tiles.request.servlet.extractor.InitParameterExtractor;
+
+import jakarta.servlet.ServletContext;
 
 /**
  * Servlet-based implementation of the TilesApplicationContext interface.
@@ -50,14 +50,18 @@ public class ServletApplicationContext implements ApplicationContext {
     private ServletContext servletContext;
 
     /**
-     * <p>The lazily instantiated <code>Map</code> of application scope
-     * attributes.</p>
+     * <p>
+     * The lazily instantiated <code>Map</code> of application scope
+     * attributes.
+     * </p>
      */
     private Map<String, Object> applicationScope = null;
 
     /**
-     * <p>The lazily instantiated <code>Map</code> of context initialization
-     * parameters.</p>
+     * <p>
+     * The lazily instantiated <code>Map</code> of context initialization
+     * parameters.
+     * </p>
      */
     private Map<String, String> initParam = null;
 

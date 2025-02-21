@@ -20,8 +20,10 @@
  */
 package org.apache.tiles.request;
 
-import static org.junit.Assert.*;
-import static org.easymock.EasyMock.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
 
 import java.util.Map;
 
@@ -30,7 +32,8 @@ import org.junit.Test;
 /**
  * Tests {@link ApplicationAccess}.
  *
- * @version $Rev: 1066446 $ $Date: 2011-02-02 13:38:04 +0100 (Wed, 02 Feb 2011) $
+ * @version $Rev: 1066446 $ $Date: 2011-02-02 13:38:04 +0100 (Wed, 02 Feb 2011)
+ *          $
  */
 public class ApplicationAccessTest {
 
@@ -44,8 +47,8 @@ public class ApplicationAccessTest {
         Map<String, Object> applicationScope = createMock(Map.class);
 
         expect(applicationContext.getApplicationScope()).andReturn(applicationScope);
-        expect(applicationScope.put(ApplicationAccess
-                .APPLICATION_CONTEXT_ATTRIBUTE, applicationContext)).andReturn(null);
+        expect(applicationScope.put(ApplicationAccess.APPLICATION_CONTEXT_ATTRIBUTE, applicationContext))
+                .andReturn(null);
 
         replay(applicationContext, applicationScope);
         ApplicationAccess.register(applicationContext);

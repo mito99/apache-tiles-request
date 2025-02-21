@@ -20,12 +20,17 @@
  */
 package org.apache.tiles.request.jsp;
 
-import static org.easymock.classextension.EasyMock.*;
+import static org.easymock.EasyMock.aryEq;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.eq;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.expectLastCall;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
 
 import java.io.IOException;
 
-import javax.servlet.jsp.JspWriter;
-
+import jakarta.servlet.jsp.JspWriter;
 import junit.framework.TestCase;
 
 /**
@@ -41,7 +46,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     private static final int STRING_LENGTH = 10;
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(int)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(int)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -55,7 +61,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(char[])}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(char[])}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -70,7 +77,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(char[], int, int)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(char[], int, int)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -86,7 +94,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#flush()}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#flush()}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -100,7 +109,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#close()}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#close()}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -114,7 +124,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(boolean)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(boolean)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -128,7 +139,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(char)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(char)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -142,7 +154,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(int)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(int)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -156,7 +169,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(long)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(long)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -170,7 +184,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(float)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(float)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -184,7 +199,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(double)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(double)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -198,7 +214,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(char[])}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(char[])}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -213,7 +230,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println()}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println()}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -227,7 +245,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(boolean)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(boolean)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -241,7 +260,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(char)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(char)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -255,7 +275,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(int)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(int)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -269,7 +290,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(long)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(long)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -283,7 +305,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(float)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(float)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -297,7 +320,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(double)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(double)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -311,7 +335,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(char[])}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(char[])}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -326,7 +351,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#getJspWriter()}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#getJspWriter()}.
      */
     public void testGetJspWriter() {
         JspWriter writer = createMock(JspWriter.class);
@@ -335,7 +361,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#append(char)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#append(char)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -365,7 +392,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#append(java.lang.CharSequence)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#append(java.lang.CharSequence)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -380,7 +408,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(java.lang.Object)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -395,7 +424,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(java.lang.String)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -409,7 +439,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(java.lang.Object)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -424,7 +455,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(java.lang.String)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -438,7 +470,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(java.lang.String, int, int)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(java.lang.String, int, int)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -453,7 +486,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(java.lang.String)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -468,7 +502,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(int)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(int)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -485,7 +520,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(char[])}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(char[])}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -503,7 +539,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(char[], int, int)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(char[], int, int)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -522,7 +559,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#flush()}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#flush()}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -539,7 +577,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#close()}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#close()}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -556,7 +595,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(boolean)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(boolean)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -573,7 +613,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(char)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(char)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -590,7 +631,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(int)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(int)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -607,7 +649,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(long)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(long)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -624,7 +667,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(float)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(float)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -641,7 +685,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(double)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(double)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -658,7 +703,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(char[])}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(char[])}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -676,7 +722,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println()}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println()}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -693,7 +740,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(boolean)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(boolean)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -710,7 +758,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(char)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(char)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -727,7 +776,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(int)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(int)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -744,7 +794,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(long)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(long)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -761,7 +812,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(float)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(float)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -778,7 +830,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(double)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(double)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -795,7 +848,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(char[])}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(char[])}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -813,7 +867,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#append(char)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#append(char)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -847,7 +902,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#append(java.lang.CharSequence)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#append(java.lang.CharSequence)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -864,7 +920,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(java.lang.Object)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -882,7 +939,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#print(java.lang.String)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -899,7 +957,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(java.lang.Object)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -917,7 +976,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#println(java.lang.String)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -934,7 +994,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(java.lang.String, int, int)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(java.lang.String, int, int)}.
      *
      * @throws IOException If something goes wrong.
      */
@@ -952,7 +1013,8 @@ public class JspPrintWriterAdapterTest extends TestCase {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspPrintWriterAdapter#write(java.lang.String)}.
      *
      * @throws IOException If something goes wrong.
      */

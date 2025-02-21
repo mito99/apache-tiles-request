@@ -20,17 +20,22 @@
  */
 package org.apache.tiles.request.servlet.extractor;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 import java.util.Enumeration;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * Tests {@link SessionScopeExtractor}.
@@ -65,7 +70,8 @@ public class SessionScopeExtractorTest {
     }
 
     /**
-     * Test method for {@link SessionScopeExtractor#setValue(java.lang.String, java.lang.Object)}.
+     * Test method for
+     * {@link SessionScopeExtractor#setValue(java.lang.String, java.lang.Object)}.
      */
     @Test
     public void testSetValue() {

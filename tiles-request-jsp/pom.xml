@@ -19,7 +19,8 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<artifactId>tiles-request</artifactId>
@@ -31,10 +32,10 @@ under the License.
 	<version>1.1-SNAPSHOT</version>
 	<name>Tiles Request - JSP support</name>
 	<description>JSP implementation of the Tiles Request framework.</description>
-    <properties>
-        <!-- decrease this whenever possible -->
-        <checkstyle.maxAllowedViolations>16</checkstyle.maxAllowedViolations>
-    </properties>
+	<properties>
+		<!-- decrease this whenever possible -->
+		<checkstyle.maxAllowedViolations>16</checkstyle.maxAllowedViolations>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
@@ -44,19 +45,21 @@ under the License.
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-request-servlet</artifactId>
 		</dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<scope>provided</scope>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>javax.servlet.jsp</groupId>
-			<artifactId>jsp-api</artifactId>
-			<scope>provided</scope>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.servlet.jsp</groupId>
+			<artifactId>jakarta.servlet.jsp-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.el</groupId>
+			<artifactId>jakarta.el-api</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>

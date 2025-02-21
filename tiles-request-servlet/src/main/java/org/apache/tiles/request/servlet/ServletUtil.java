@@ -23,13 +23,13 @@ package org.apache.tiles.request.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-
-import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.ApplicationAccess;
-import org.apache.tiles.request.RequestWrapper;
+import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.Request;
+import org.apache.tiles.request.RequestWrapper;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
 
 /**
  * Utilities for Tiles request servlet support.
@@ -45,9 +45,10 @@ public final class ServletUtil {
     }
 
     /**
-     * Wraps a ServletException to create an IOException with the root cause if present.
+     * Wraps a ServletException to create an IOException with the root cause if
+     * present.
      *
-     * @param ex The exception to wrap.
+     * @param ex      The exception to wrap.
      * @param message The message of the exception.
      * @return The wrapped exception.
      */
@@ -67,7 +68,8 @@ public final class ServletUtil {
     }
 
     /**
-     * Returns the application context getting it from the servlet context. It must be
+     * Returns the application context getting it from the servlet context. It must
+     * be
      * first saved creating a {@link ServletApplicationContext} and using
      * {@link ApplicationAccess#register(ApplicationContext)}.
      *
@@ -85,7 +87,7 @@ public final class ServletUtil {
      * @param request The request to open.
      * @return The servlet-based request context.
      * @throws NotAServletEnvironmentException If a servlet-based request
-     * context could not be found.
+     *                                         context could not be found.
      */
     public static ServletRequest getServletRequest(Request request) {
         Request currentRequest = request;
@@ -110,7 +112,7 @@ public final class ServletUtil {
      * @param applicationContext The application context to analyze.
      * @return The servlet context.
      * @throws NotAServletEnvironmentException If the application context is not
-     * servlet-based.
+     *                                         servlet-based.
      */
     public static ServletContext getServletContext(ApplicationContext applicationContext) {
         if (applicationContext instanceof ServletApplicationContext) {

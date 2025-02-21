@@ -19,7 +19,8 @@ specific language governing permissions and limitations
 under the License.
 -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <artifactId>tiles-request</artifactId>
@@ -32,8 +33,8 @@ under the License.
   <name>Tiles request - Servlet support</name>
   <description>Tiles request implementation for Servlet technology.</description>
   <properties>
-      <!-- decrease this whenever possible -->
-      <checkstyle.maxAllowedViolations>14</checkstyle.maxAllowedViolations>
+    <!-- decrease this whenever possible -->
+    <checkstyle.maxAllowedViolations>14</checkstyle.maxAllowedViolations>
   </properties>
   <dependencies>
     <dependency>
@@ -41,29 +42,28 @@ under the License.
       <artifactId>tiles-request-api</artifactId>
     </dependency>
     <dependency>
-    	<groupId>javax.servlet</groupId>
-    	<artifactId>servlet-api</artifactId>
-    	<scope>provided</scope>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
     </dependency>
     <dependency>
-    	<groupId>junit</groupId>
-    	<artifactId>junit</artifactId>
-    	<scope>test</scope>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
     </dependency>
     <dependency>
-    	<groupId>org.easymock</groupId>
-    	<artifactId>easymock</artifactId>
-    	<scope>test</scope>
+      <groupId>org.easymock</groupId>
+      <artifactId>easymock</artifactId>
+      <scope>test</scope>
     </dependency>
     <dependency>
-    	<groupId>org.apache.shale</groupId>
-    	<artifactId>shale-test</artifactId>
-    	<scope>test</scope>
+      <groupId>org.apache.shale</groupId>
+      <artifactId>shale-test</artifactId>
+      <scope>test</scope>
     </dependency>
     <dependency>
-    	<groupId>org.easymock</groupId>
-    	<artifactId>easymockclassextension</artifactId>
-    	<scope>test</scope>
+      <groupId>org.easymock</groupId>
+      <artifactId>easymockclassextension</artifactId>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 </project>

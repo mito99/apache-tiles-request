@@ -20,9 +20,9 @@
  */
 package org.apache.tiles.request;
 
-import static org.easymock.classextension.EasyMock.createMock;
-import static org.easymock.classextension.EasyMock.replay;
-import static org.easymock.classextension.EasyMock.verify;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
 
 import java.io.IOException;
 
@@ -48,7 +48,9 @@ public class DispatchRequestWrapperTest extends DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DispatchRequestWrapper#dispatch(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.DispatchRequestWrapper#dispatch(java.lang.String)}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -64,7 +66,9 @@ public class DispatchRequestWrapperTest extends DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DispatchRequestWrapper#include(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.DispatchRequestWrapper#include(java.lang.String)}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -80,7 +84,8 @@ public class DispatchRequestWrapperTest extends DefaultRequestWrapperTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.DispatchRequestWrapper#setContentType(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.DispatchRequestWrapper#setContentType(java.lang.String)}.
      */
     @Test
     public void testSetContentType() {

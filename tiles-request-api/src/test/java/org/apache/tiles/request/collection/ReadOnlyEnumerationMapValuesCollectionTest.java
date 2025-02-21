@@ -20,9 +20,14 @@
  */
 package org.apache.tiles.request.collection;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -265,7 +270,8 @@ public class ReadOnlyEnumerationMapValuesCollectionTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.HeaderValuesMap#size()}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.HeaderValuesMap#size()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -302,7 +308,7 @@ public class ReadOnlyEnumerationMapValuesCollectionTest {
         expect(extractor.getValue("one")).andReturn(1);
         expect(extractor.getValue("two")).andReturn(2);
 
-        Integer[] entryArray = new Integer[] {1, 2};
+        Integer[] entryArray = new Integer[] { 1, 2 };
 
         replay(extractor, keys);
         assertArrayEquals(entryArray, coll.toArray());
@@ -327,7 +333,7 @@ public class ReadOnlyEnumerationMapValuesCollectionTest {
         expect(extractor.getValue("one")).andReturn(1);
         expect(extractor.getValue("two")).andReturn(2);
 
-        Integer[] entryArray = new Integer[] {1, 2};
+        Integer[] entryArray = new Integer[] { 1, 2 };
 
         replay(extractor, keys);
         Integer[] realArray = new Integer[2];

@@ -20,18 +20,21 @@
  */
 package org.apache.tiles.request.jsp.autotag;
 
-import static org.easymock.EasyMock.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.expectLastCall;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
 
 import java.io.IOException;
 import java.io.Writer;
 
-import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.JspWriter;
-import javax.servlet.jsp.PageContext;
-import javax.servlet.jsp.tagext.JspFragment;
-
-import org.apache.tiles.request.jsp.autotag.JspModelBody;
 import org.junit.Test;
+
+import jakarta.servlet.jsp.JspException;
+import jakarta.servlet.jsp.JspWriter;
+import jakarta.servlet.jsp.PageContext;
+import jakarta.servlet.jsp.tagext.JspFragment;
 
 /**
  * Tests {@link JspModelBody}.
@@ -41,8 +44,10 @@ import org.junit.Test;
 public class JspModelBodyTest {
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.autotag.freemarker.runtime.JspModelBody#evaluate(java.io.Writer)}.
-     * @throws IOException If something goes wrong.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.autotag.freemarker.runtime.JspModelBody#evaluate(java.io.Writer)}.
+     * 
+     * @throws IOException  If something goes wrong.
      * @throws JspException If something goes wrong.
      */
     @Test
@@ -61,8 +66,10 @@ public class JspModelBodyTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.autotag.freemarker.runtime.JspModelBody#evaluate(java.io.Writer)}.
-     * @throws IOException If something goes wrong.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.autotag.freemarker.runtime.JspModelBody#evaluate(java.io.Writer)}.
+     * 
+     * @throws IOException  If something goes wrong.
      * @throws JspException If something goes wrong.
      */
     @Test
@@ -79,8 +86,10 @@ public class JspModelBodyTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.autotag.freemarker.runtime.JspModelBody#evaluate(java.io.Writer)}.
-     * @throws IOException If something goes wrong.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.autotag.freemarker.runtime.JspModelBody#evaluate(java.io.Writer)}.
+     * 
+     * @throws IOException  If something goes wrong.
      * @throws JspException If something goes wrong.
      */
     @Test(expected = IOException.class)

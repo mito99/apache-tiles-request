@@ -20,9 +20,11 @@
  */
 package org.apache.tiles.request.collection;
 
-import org.apache.tiles.request.collection.CollectionUtil;
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Enumeration;
 
@@ -31,12 +33,14 @@ import org.junit.Test;
 /**
  * Test {@link RequestUtil}.
  *
- * @version $Rev: 1066446 $ $Date: 2011-02-02 13:38:04 +0100 (Wed, 02 Feb 2011) $
+ * @version $Rev: 1066446 $ $Date: 2011-02-02 13:38:04 +0100 (Wed, 02 Feb 2011)
+ *          $
  */
 public class CollectionUtilTest {
 
     /**
-     * Test method for {@link org.apache.tiles.request.RequestUtil#key(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.request.RequestUtil#key(java.lang.Object)}.
      */
     @Test
     public void testKey() {
@@ -45,7 +49,8 @@ public class CollectionUtilTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.RequestUtil#key(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.request.RequestUtil#key(java.lang.Object)}.
      */
     @Test(expected = IllegalArgumentException.class)
     public void testKeyException() {
@@ -53,7 +58,8 @@ public class CollectionUtilTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.RequestUtil#enumerationSize(java.util.Enumeration)}.
+     * Test method for
+     * {@link org.apache.tiles.request.RequestUtil#enumerationSize(java.util.Enumeration)}.
      */
     @SuppressWarnings("unchecked")
     @Test

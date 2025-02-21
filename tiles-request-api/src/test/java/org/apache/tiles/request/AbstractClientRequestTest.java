@@ -20,8 +20,14 @@
  */
 package org.apache.tiles.request;
 
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.createMockBuilder;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -67,7 +73,9 @@ public class AbstractClientRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.AbstractClientRequest#dispatch(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.AbstractClientRequest#dispatch(java.lang.String)}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -85,7 +93,9 @@ public class AbstractClientRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.AbstractClientRequest#include(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.AbstractClientRequest#include(java.lang.String)}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -97,12 +107,14 @@ public class AbstractClientRequestTest {
 
         replay(request, applicationContext);
         request.include("/my/path2.html");
-        assertTrue((Boolean)request.getContext(Request.REQUEST_SCOPE).get(AbstractRequest.FORCE_INCLUDE_ATTRIBUTE_NAME));
+        assertTrue(
+                (Boolean) request.getContext(Request.REQUEST_SCOPE).get(AbstractRequest.FORCE_INCLUDE_ATTRIBUTE_NAME));
         verify(request, applicationContext);
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.AbstractClientRequest#getApplicationContext()}.
+     * Test method for
+     * {@link org.apache.tiles.request.AbstractClientRequest#getApplicationContext()}.
      */
     @Test
     public void testGetApplicationContext() {
@@ -112,7 +124,8 @@ public class AbstractClientRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.AbstractClientRequest#getContext(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.AbstractClientRequest#getContext(java.lang.String)}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -127,11 +140,12 @@ public class AbstractClientRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.AbstractClientRequest#getAvailableScopes()}.
+     * Test method for
+     * {@link org.apache.tiles.request.AbstractClientRequest#getAvailableScopes()}.
      */
     @Test
     public void testGetAvailableScopes() {
-        String[] scopes = new String[] {"one", "two", "three"};
+        String[] scopes = new String[] { "one", "two", "three" };
 
         expect(request.getAvailableScopes()).andReturn(Arrays.asList(scopes));
 
@@ -141,7 +155,8 @@ public class AbstractClientRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.AbstractClientRequest#getApplicationScope()}.
+     * Test method for
+     * {@link org.apache.tiles.request.AbstractClientRequest#getApplicationScope()}.
      */
     @Test
     public void testGetApplicationScope() {

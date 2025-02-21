@@ -20,8 +20,12 @@
  */
 package org.apache.tiles.request;
 
-import static org.junit.Assert.*;
-import static org.easymock.classextension.EasyMock.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.createMockBuilder;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -73,7 +77,9 @@ public class AbstractViewRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.AbstractViewRequest#dispatch(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.AbstractViewRequest#dispatch(java.lang.String)}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -90,7 +96,9 @@ public class AbstractViewRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.AbstractViewRequest#include(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.AbstractViewRequest#include(java.lang.String)}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -107,7 +115,9 @@ public class AbstractViewRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.AbstractViewRequest#doInclude(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.AbstractViewRequest#doInclude(java.lang.String)}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test

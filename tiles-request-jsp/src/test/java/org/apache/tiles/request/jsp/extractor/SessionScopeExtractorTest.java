@@ -20,17 +20,20 @@
  */
 package org.apache.tiles.request.jsp.extractor;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import java.util.Enumeration;
 
-import javax.servlet.http.HttpSession;
-import javax.servlet.jsp.PageContext;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import jakarta.servlet.http.HttpSession;
+import jakarta.servlet.jsp.PageContext;
 
 /**
  * Tests {@link SessionScopeExtractor}.
@@ -65,7 +68,8 @@ public class SessionScopeExtractorTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#removeValue(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#removeValue(java.lang.String)}.
      */
     @Test
     public void testRemoveValue() {
@@ -78,7 +82,8 @@ public class SessionScopeExtractorTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#getKeys()}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#getKeys()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -93,16 +98,17 @@ public class SessionScopeExtractorTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#getValue(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#getValue(java.lang.String)}.
      */
     @Test
     public void testGetValue() {
         expect(context.getSession()).andReturn(session);
         expect(context.getAttribute("key", PageContext.SESSION_SCOPE)).andReturn("value");
 
-       replay(context, session);
-       assertEquals("value", extractor.getValue("key"));
-       verify(context, session);
+        replay(context, session);
+        assertEquals("value", extractor.getValue("key"));
+        verify(context, session);
     }
 
     /**
@@ -118,9 +124,9 @@ public class SessionScopeExtractorTest {
         verify(context, session);
     }
 
-
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#removeValue(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#removeValue(java.lang.String)}.
      */
     @Test
     public void testRemoveValueNoSession() {
@@ -132,7 +138,8 @@ public class SessionScopeExtractorTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#getKeys()}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#getKeys()}.
      */
     @Test
     public void testGetKeysNoSession() {
@@ -144,15 +151,16 @@ public class SessionScopeExtractorTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#getValue(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.extractor.ScopeExtractor#getValue(java.lang.String)}.
      */
     @Test
     public void testGetValueNoSession() {
-       expect(context.getSession()).andReturn(null);
+        expect(context.getSession()).andReturn(null);
 
-       replay(context, session);
-       assertNull(extractor.getValue("key"));
-       verify(context, session);
+        replay(context, session);
+        assertNull(extractor.getValue("key"));
+        verify(context, session);
     }
 
     /**

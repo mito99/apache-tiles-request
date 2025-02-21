@@ -28,11 +28,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.PageContext;
-
 import org.apache.tiles.request.AbstractViewRequest;
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.DispatchRequest;
@@ -41,6 +36,11 @@ import org.apache.tiles.request.jsp.extractor.ScopeExtractor;
 import org.apache.tiles.request.jsp.extractor.SessionScopeExtractor;
 import org.apache.tiles.request.servlet.ServletRequest;
 import org.apache.tiles.request.servlet.ServletUtil;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.jsp.PageContext;
 
 /**
  * Context implementation used for executing tiles within a
@@ -53,8 +53,8 @@ public class JspRequest extends AbstractViewRequest {
     /**
      * The native available scopes.
      */
-    private static final List<String> SCOPES
-            = Collections.unmodifiableList(Arrays.asList("page", REQUEST_SCOPE, "session", APPLICATION_SCOPE));
+    private static final List<String> SCOPES = Collections
+            .unmodifiableList(Arrays.asList("page", REQUEST_SCOPE, "session", APPLICATION_SCOPE));
 
     /**
      * The current page context.
@@ -62,26 +62,34 @@ public class JspRequest extends AbstractViewRequest {
     private PageContext pageContext;
 
     /**
-     * <p>The lazily instantiated <code>Map</code> of page scope
-     * attributes.</p>
+     * <p>
+     * The lazily instantiated <code>Map</code> of page scope
+     * attributes.
+     * </p>
      */
     private Map<String, Object> pageScope = null;
 
     /**
-     * <p>The lazily instantiated <code>Map</code> of request scope
-     * attributes.</p>
+     * <p>
+     * The lazily instantiated <code>Map</code> of request scope
+     * attributes.
+     * </p>
      */
     private Map<String, Object> requestScope = null;
 
     /**
-     * <p>The lazily instantiated <code>Map</code> of session scope
-     * attributes.</p>
+     * <p>
+     * The lazily instantiated <code>Map</code> of session scope
+     * attributes.
+     * </p>
      */
     private Map<String, Object> sessionScope = null;
 
     /**
-     * <p>The lazily instantiated <code>Map</code> of application scope
-     * attributes.</p>
+     * <p>
+     * The lazily instantiated <code>Map</code> of application scope
+     * attributes.
+     * </p>
      */
     private Map<String, Object> applicationScope = null;
 
@@ -89,21 +97,23 @@ public class JspRequest extends AbstractViewRequest {
      * Creates a JSP request.
      *
      * @param applicationContext The application context.
-     * @param pageContext The page context.
+     * @param pageContext        The page context.
      * @return A new JSP request.
      */
     public static JspRequest createServletJspRequest(ApplicationContext applicationContext, PageContext pageContext) {
         return new JspRequest(new ServletRequest(
                 applicationContext, (HttpServletRequest) pageContext
-                        .getRequest(), (HttpServletResponse) pageContext
-                        .getResponse()), pageContext);
+                        .getRequest(),
+                (HttpServletResponse) pageContext
+                        .getResponse()),
+                pageContext);
     }
 
     /**
      * Constructor.
      *
      * @param enclosedRequest The request that is wrapped here.
-     * @param pageContext The page context to use.
+     * @param pageContext     The page context to use.
      */
     public JspRequest(DispatchRequest enclosedRequest,
             PageContext pageContext) {
@@ -201,13 +211,13 @@ public class JspRequest extends AbstractViewRequest {
 
     @Override
     public Map<String, Object> getContext(String scope) {
-        if("page".equals(scope)){
+        if ("page".equals(scope)) {
             return getPageScope();
-        }else if(REQUEST_SCOPE.equals(scope)){
+        } else if (REQUEST_SCOPE.equals(scope)) {
             return getRequestScope();
-        }else if("session".equals(scope)){
+        } else if ("session".equals(scope)) {
             return getSessionScope();
-        }else if(APPLICATION_SCOPE.equals(scope)){
+        } else if (APPLICATION_SCOPE.equals(scope)) {
             return getApplicationScope();
         }
         throw new IllegalArgumentException(scope + " does not exist. Call getAvailableScopes() first to check.");

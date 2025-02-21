@@ -20,9 +20,14 @@
  */
 package org.apache.tiles.request.collection;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -40,7 +45,6 @@ import org.junit.Test;
  *
  */
 public class HeaderValuesMapEntrySetTest {
-
 
     /**
      * The extractor to use.
@@ -101,7 +105,7 @@ public class HeaderValuesMapEntrySetTest {
         Enumeration<String> values2 = createMock(Enumeration.class);
 
         expect(entry.getKey()).andReturn("two");
-        expect(entry.getValue()).andReturn(new String[] {"value2", "value3"});
+        expect(entry.getValue()).andReturn(new String[] { "value2", "value3" });
 
         expect(extractor.getValues("two")).andReturn(values2);
         expect(values2.hasMoreElements()).andReturn(true);
@@ -127,9 +131,9 @@ public class HeaderValuesMapEntrySetTest {
         Map.Entry<String, String[]> entry2 = createMock(Map.Entry.class);
 
         expect(entry1.getKey()).andReturn("one");
-        expect(entry1.getValue()).andReturn(new String[] {"value1"});
+        expect(entry1.getValue()).andReturn(new String[] { "value1" });
         expect(entry2.getKey()).andReturn("two");
-        expect(entry2.getValue()).andReturn(new String[] {"value2", "value3"});
+        expect(entry2.getValue()).andReturn(new String[] { "value2", "value3" });
 
         expect(extractor.getValues("one")).andReturn(values1);
         expect(values1.hasMoreElements()).andReturn(true);
@@ -161,7 +165,7 @@ public class HeaderValuesMapEntrySetTest {
         Map.Entry<String, String[]> entry1 = createMock(Map.Entry.class);
 
         expect(entry1.getKey()).andReturn("one");
-        expect(entry1.getValue()).andReturn(new String[] {"value4"});
+        expect(entry1.getValue()).andReturn(new String[] { "value4" });
 
         expect(extractor.getValues("one")).andReturn(values1);
         expect(values1.hasMoreElements()).andReturn(true);
@@ -262,7 +266,8 @@ public class HeaderValuesMapEntrySetTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.HeaderValuesMap#size()}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.HeaderValuesMap#size()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -311,8 +316,8 @@ public class HeaderValuesMapEntrySetTest {
         expect(values2.hasMoreElements()).andReturn(false);
 
         MapEntryArrayValues<String, String>[] entryArray = new MapEntryArrayValues[2];
-        entryArray[0] = new MapEntryArrayValues<String, String>("one", new String[] {"value1"}, false);
-        entryArray[1] = new MapEntryArrayValues<String, String>("two", new String[] {"value2", "value3"}, false);
+        entryArray[0] = new MapEntryArrayValues<String, String>("one", new String[] { "value1" }, false);
+        entryArray[1] = new MapEntryArrayValues<String, String>("two", new String[] { "value2", "value3" }, false);
 
         replay(extractor, keys, values1, values2);
         assertArrayEquals(entryArray, entrySet.toArray());
@@ -349,8 +354,8 @@ public class HeaderValuesMapEntrySetTest {
         expect(values2.hasMoreElements()).andReturn(false);
 
         MapEntryArrayValues<String, String>[] entryArray = new MapEntryArrayValues[2];
-        entryArray[0] = new MapEntryArrayValues<String, String>("one", new String[] {"value1"}, false);
-        entryArray[1] = new MapEntryArrayValues<String, String>("two", new String[] {"value2", "value3"}, false);
+        entryArray[0] = new MapEntryArrayValues<String, String>("one", new String[] { "value1" }, false);
+        entryArray[1] = new MapEntryArrayValues<String, String>("two", new String[] { "value2", "value3" }, false);
         MapEntryArrayValues<String, String>[] realArray = new MapEntryArrayValues[2];
 
         replay(extractor, keys, values1, values2);

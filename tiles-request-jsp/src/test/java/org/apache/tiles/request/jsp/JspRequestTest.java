@@ -20,17 +20,15 @@
  */
 package org.apache.tiles.request.jsp;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.expectLastCall;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.JspWriter;
-import javax.servlet.jsp.PageContext;
 
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.DispatchRequest;
@@ -38,6 +36,12 @@ import org.apache.tiles.request.collection.ScopeMap;
 import org.apache.tiles.request.servlet.ServletRequest;
 import org.junit.Before;
 import org.junit.Test;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.jsp.JspWriter;
+import jakarta.servlet.jsp.PageContext;
 
 /**
  * Tests {@link JspRequest}.
@@ -86,7 +90,8 @@ public class JspRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspRequest#getPrintWriter()}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspRequest#getPrintWriter()}.
      */
     @Test
     public void testGetPrintWriter() {
@@ -101,8 +106,10 @@ public class JspRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspRequest#doInclude(java.lang.String)}.
-     * @throws IOException If something goes wrong.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspRequest#doInclude(java.lang.String)}.
+     * 
+     * @throws IOException      If something goes wrong.
      * @throws ServletException If something goes wrong.
      */
     @Test
@@ -115,8 +122,10 @@ public class JspRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspRequest#doInclude(java.lang.String)}.
-     * @throws IOException If something goes wrong.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspRequest#doInclude(java.lang.String)}.
+     * 
+     * @throws IOException      If something goes wrong.
      * @throws ServletException If something goes wrong.
      */
     @Test(expected = IOException.class)
@@ -130,7 +139,8 @@ public class JspRequestTest {
     }
 
     /**
-     * Test method for {@link JspRequest#createServletJspRequest(ApplicationContext, PageContext)}.
+     * Test method for
+     * {@link JspRequest#createServletJspRequest(ApplicationContext, PageContext)}.
      */
     @Test
     public void testCreateServletJspRequest() {
@@ -150,7 +160,8 @@ public class JspRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspRequest#getPageScope()}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspRequest#getPageScope()}.
      */
     @Test
     public void testGetPageScope() {
@@ -160,7 +171,8 @@ public class JspRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspRequest#getRequestScope()}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspRequest#getRequestScope()}.
      */
     @Test
     public void testGetRequestScope() {
@@ -170,7 +182,8 @@ public class JspRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspRequest#getSessionScope()}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspRequest#getSessionScope()}.
      */
     @Test
     public void testGetSessionScope() {
@@ -180,7 +193,8 @@ public class JspRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspRequest#getApplicationScope()}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspRequest#getApplicationScope()}.
      */
     @Test
     public void testGetApplicationScope() {
@@ -190,7 +204,8 @@ public class JspRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspRequest#getPageContext()}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspRequest#getPageContext()}.
      */
     @Test
     public void testGetPageContext() {

@@ -20,17 +20,20 @@
  */
 package org.apache.tiles.request.servlet;
 
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
-
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 
 import org.apache.tiles.request.ApplicationAccess;
 import org.apache.tiles.request.ApplicationContext;
 import org.junit.Test;
+
+import jakarta.servlet.ServletContext;
+import jakarta.servlet.ServletException;
 
 /**
  * Tests {@link ServletUtil}.
@@ -40,7 +43,8 @@ import org.junit.Test;
 public class ServletUtilTest {
 
     /**
-     * Test method for {@link ServletUtil#wrapServletException(ServletException, String)}.
+     * Test method for
+     * {@link ServletUtil#wrapServletException(ServletException, String)}.
      */
     @Test
     public void testWrapServletException() {
@@ -72,8 +76,8 @@ public class ServletUtilTest {
         ServletContext servletContext = createMock(ServletContext.class);
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
 
-        expect(servletContext.getAttribute(ApplicationAccess
-                .APPLICATION_CONTEXT_ATTRIBUTE)).andReturn(applicationContext);
+        expect(servletContext.getAttribute(ApplicationAccess.APPLICATION_CONTEXT_ATTRIBUTE))
+                .andReturn(applicationContext);
 
         replay(servletContext, applicationContext);
         assertEquals(applicationContext, ServletUtil.getApplicationContext(servletContext));

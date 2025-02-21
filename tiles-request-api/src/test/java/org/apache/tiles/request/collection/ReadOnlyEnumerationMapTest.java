@@ -20,9 +20,14 @@
  */
 package org.apache.tiles.request.collection;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.createMockBuilder;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -59,7 +64,8 @@ public class ReadOnlyEnumerationMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#clear()}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#clear()}.
      */
     @Test(expected = UnsupportedOperationException.class)
     public void testClear() {
@@ -67,7 +73,8 @@ public class ReadOnlyEnumerationMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#containsKey(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#containsKey(java.lang.Object)}.
      */
     @Test
     public void testContainsKey() {
@@ -126,7 +133,8 @@ public class ReadOnlyEnumerationMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#get(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#get(java.lang.Object)}.
      */
     @Test
     public void testGet() {
@@ -138,7 +146,8 @@ public class ReadOnlyEnumerationMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#isEmpty()}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#isEmpty()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -154,7 +163,8 @@ public class ReadOnlyEnumerationMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#isEmpty()}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#isEmpty()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -170,7 +180,8 @@ public class ReadOnlyEnumerationMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#keySet()}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#keySet()}.
      */
     @Test
     public void testKeySet() {
@@ -188,7 +199,8 @@ public class ReadOnlyEnumerationMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#putAll(java.util.Map)}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#putAll(java.util.Map)}.
      */
     @Test(expected = UnsupportedOperationException.class)
     public void testPutAll() {
@@ -196,7 +208,8 @@ public class ReadOnlyEnumerationMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#remove(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#remove(java.lang.Object)}.
      */
     @Test(expected = UnsupportedOperationException.class)
     public void testRemove() {
@@ -204,7 +217,8 @@ public class ReadOnlyEnumerationMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#size()}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.ReadOnlyEnumerationMap#size()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -224,7 +238,8 @@ public class ReadOnlyEnumerationMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.extractor.collection.AbstractEnumerationMap#hashCode()}.
+     * Test method for
+     * {@link org.apache.tiles.extractor.collection.AbstractEnumerationMap#hashCode()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -251,7 +266,8 @@ public class ReadOnlyEnumerationMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.extractor.collection.AbstractEnumerationMap#equals(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.extractor.collection.AbstractEnumerationMap#equals(java.lang.Object)}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -290,7 +306,8 @@ public class ReadOnlyEnumerationMapTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.extractor.collection.AbstractEnumerationMap#equals(java.lang.Object)}.
+     * Test method for
+     * {@link org.apache.tiles.extractor.collection.AbstractEnumerationMap#equals(java.lang.Object)}.
      */
     @SuppressWarnings("unchecked")
     @Test

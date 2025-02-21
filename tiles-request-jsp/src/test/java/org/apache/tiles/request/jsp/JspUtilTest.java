@@ -20,15 +20,18 @@
  */
 package org.apache.tiles.request.jsp;
 
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
-
-import javax.servlet.jsp.JspContext;
-import javax.servlet.jsp.PageContext;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
 
 import org.apache.tiles.request.ApplicationAccess;
 import org.apache.tiles.request.ApplicationContext;
 import org.junit.Test;
+
+import jakarta.servlet.jsp.JspContext;
+import jakarta.servlet.jsp.PageContext;
 
 /**
  * Tests {@link JspUtil}.
@@ -38,15 +41,15 @@ import org.junit.Test;
 public class JspUtilTest {
 
     /**
-     * Test method for {@link org.apache.tiles.request.jsp.JspUtil#getApplicationContext(javax.servlet.jsp.JspContext)}.
+     * Test method for
+     * {@link org.apache.tiles.request.jsp.JspUtil#getApplicationContext(javax.servlet.jsp.JspContext)}.
      */
     @Test
     public void testGetApplicationContext() {
         ApplicationContext applicationContext = createMock(ApplicationContext.class);
         JspContext jspContext = createMock(JspContext.class);
 
-        expect(jspContext.getAttribute(ApplicationAccess
-                .APPLICATION_CONTEXT_ATTRIBUTE, PageContext.APPLICATION_SCOPE))
+        expect(jspContext.getAttribute(ApplicationAccess.APPLICATION_CONTEXT_ATTRIBUTE, PageContext.APPLICATION_SCOPE))
                 .andReturn(applicationContext);
 
         replay(applicationContext, jspContext);

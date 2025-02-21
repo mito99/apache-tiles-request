@@ -20,9 +20,14 @@
  */
 package org.apache.tiles.request.collection;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -39,7 +44,6 @@ import org.junit.Test;
  *
  */
 public class KeySetTest {
-
 
     /**
      * The extractor to use.
@@ -236,7 +240,8 @@ public class KeySetTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.HeaderValuesMap#size()}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.HeaderValuesMap#size()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -272,7 +277,7 @@ public class KeySetTest {
         expect(keys.nextElement()).andReturn("two");
         expect(keys.hasMoreElements()).andReturn(false);
         replay(extractor, keys, values1, values2);
-        assertArrayEquals(new String[] {"one", "two"}, entrySet.toArray());
+        assertArrayEquals(new String[] { "one", "two" }, entrySet.toArray());
         verify(extractor, keys, values1, values2);
     }
 
@@ -295,7 +300,7 @@ public class KeySetTest {
 
         replay(extractor, keys, values1, values2);
         String[] realArray = new String[2];
-        assertArrayEquals(new String[] {"one", "two"}, entrySet.toArray(realArray));
+        assertArrayEquals(new String[] { "one", "two" }, entrySet.toArray(realArray));
         verify(extractor, keys, values1, values2);
     }
 }

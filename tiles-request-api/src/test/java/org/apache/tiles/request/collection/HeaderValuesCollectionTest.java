@@ -20,9 +20,14 @@
  */
 package org.apache.tiles.request.collection;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -40,7 +45,6 @@ import org.junit.Test;
  * @version $Rev$ $Date$
  */
 public class HeaderValuesCollectionTest {
-
 
     /**
      * The extractor to use.
@@ -122,7 +126,7 @@ public class HeaderValuesCollectionTest {
         expect(values2.hasMoreElements()).andReturn(false);
 
         replay(extractor, keys, values1, values2);
-        assertTrue(coll.contains(new String[] {"value2", "value3"}));
+        assertTrue(coll.contains(new String[] { "value2", "value3" }));
         verify(extractor, keys, values1, values2);
     }
 
@@ -156,7 +160,7 @@ public class HeaderValuesCollectionTest {
         expect(values2.hasMoreElements()).andReturn(false);
 
         replay(extractor, keys, values1, values2);
-        assertFalse(coll.contains(new String[] {"value2", "value4"}));
+        assertFalse(coll.contains(new String[] { "value2", "value4" }));
         verify(extractor, keys, values1, values2);
     }
 
@@ -195,8 +199,8 @@ public class HeaderValuesCollectionTest {
 
         replay(extractor, keys, values1, values2);
         List<String[]> coll = new ArrayList<String[]>();
-        coll.add(new String[] {"value1"});
-        coll.add(new String[] {"value2", "value3"});
+        coll.add(new String[] { "value1" });
+        coll.add(new String[] { "value2", "value3" });
         assertTrue(this.coll.containsAll(coll));
         verify(extractor, keys, values1, values2);
     }
@@ -230,7 +234,7 @@ public class HeaderValuesCollectionTest {
 
         replay(extractor, keys, values1, values2);
         List<String[]> coll = new ArrayList<String[]>();
-        coll.add(new String[] {"value4"});
+        coll.add(new String[] { "value4" });
         assertFalse(this.coll.containsAll(coll));
         verify(extractor, keys, values1, values2);
     }
@@ -321,7 +325,8 @@ public class HeaderValuesCollectionTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.collection.HeaderValuesMap#size()}.
+     * Test method for
+     * {@link org.apache.tiles.request.collection.HeaderValuesMap#size()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -370,8 +375,8 @@ public class HeaderValuesCollectionTest {
         expect(values2.hasMoreElements()).andReturn(false);
 
         String[][] entryArray = new String[2][];
-        entryArray[0] = new String[] {"value1"};
-        entryArray[1] = new String[] {"value2", "value3"};
+        entryArray[0] = new String[] { "value1" };
+        entryArray[1] = new String[] { "value2", "value3" };
 
         replay(extractor, keys, values1, values2);
         assertArrayEquals(entryArray, coll.toArray());
@@ -408,8 +413,8 @@ public class HeaderValuesCollectionTest {
         expect(values2.hasMoreElements()).andReturn(false);
 
         String[][] entryArray = new String[2][];
-        entryArray[0] = new String[] {"value1"};
-        entryArray[1] = new String[] {"value2", "value3"};
+        entryArray[0] = new String[] { "value1" };
+        entryArray[1] = new String[] { "value2", "value3" };
         String[][] realArray = new String[2][];
 
         replay(extractor, keys, values1, values2);

@@ -20,13 +20,14 @@
  */
 package org.apache.tiles.request.jsp.autotag;
 
-import javax.servlet.jsp.JspContext;
-import javax.servlet.jsp.PageContext;
-import javax.servlet.jsp.tagext.SimpleTagSupport;
-import org.apache.tiles.autotag.core.runtime.ModelBody;
 import org.apache.tiles.autotag.core.runtime.AutotagRuntime;
+import org.apache.tiles.autotag.core.runtime.ModelBody;
 import org.apache.tiles.request.Request;
 import org.apache.tiles.request.jsp.JspRequest;
+
+import jakarta.servlet.jsp.JspContext;
+import jakarta.servlet.jsp.PageContext;
+import jakarta.servlet.jsp.tagext.SimpleTagSupport;
 
 /**
  * A Runtime for implementing JSP tag libraries.
@@ -43,8 +44,9 @@ public class JspAutotagRuntime extends SimpleTagSupport implements AutotagRuntim
     @Override
     public Request createRequest() {
         JspContext pageContext = getJspContext();
-        return JspRequest.createServletJspRequest(org.apache.tiles.request.jsp.JspUtil.getApplicationContext(pageContext),
-                                                  (PageContext) pageContext);
+        return JspRequest.createServletJspRequest(
+                org.apache.tiles.request.jsp.JspUtil.getApplicationContext(pageContext),
+                (PageContext) pageContext);
     }
 
     /** {@inheritDoc} */
@@ -56,6 +58,7 @@ public class JspAutotagRuntime extends SimpleTagSupport implements AutotagRuntim
     /** {@inheritDoc} */
     @Override
     public <T> T getParameter(String name, Class<T> type, T defaultValue) {
-        throw new UnsupportedOperationException("the parameters are injected into the tag itself, no need to fetch them");
+        throw new UnsupportedOperationException(
+                "the parameters are injected into the tag itself, no need to fetch them");
     }
 }

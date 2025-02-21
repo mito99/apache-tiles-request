@@ -20,20 +20,18 @@
  */
 package org.apache.tiles.request.servlet;
 
-import static org.easymock.EasyMock.*;
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.expectLastCall;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Locale;
 import java.util.Map;
-
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.tiles.request.ApplicationContext;
 import org.apache.tiles.request.collection.HeaderValuesMap;
@@ -42,6 +40,12 @@ import org.apache.tiles.request.collection.ScopeMap;
 import org.apache.tiles.request.servlet.extractor.HeaderExtractor;
 import org.junit.Before;
 import org.junit.Test;
+
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * Tests {@link ServletRequest}.
@@ -82,8 +86,10 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#doForward(java.lang.String)}.
-     * @throws IOException If something goes wrong.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#doForward(java.lang.String)}.
+     * 
+     * @throws IOException      If something goes wrong.
      * @throws ServletException If something goes wrong.
      */
     @Test
@@ -100,7 +106,9 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#doForward(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#doForward(java.lang.String)}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test(expected = IOException.class)
@@ -117,8 +125,10 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#doForward(java.lang.String)}.
-     * @throws IOException If something goes wrong.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#doForward(java.lang.String)}.
+     * 
+     * @throws IOException      If something goes wrong.
      * @throws ServletException If something goes wrong.
      */
     @Test(expected = IOException.class)
@@ -139,8 +149,10 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#doForward(java.lang.String)}.
-     * @throws IOException If something goes wrong.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#doForward(java.lang.String)}.
+     * 
+     * @throws IOException      If something goes wrong.
      * @throws ServletException If something goes wrong.
      */
     @Test
@@ -157,8 +169,10 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#doInclude(java.lang.String)}.
-     * @throws IOException If something goes wrong.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#doInclude(java.lang.String)}.
+     * 
+     * @throws IOException      If something goes wrong.
      * @throws ServletException If something goes wrong.
      */
     @Test
@@ -174,7 +188,9 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#doInclude(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#doInclude(java.lang.String)}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test(expected = IOException.class)
@@ -190,8 +206,10 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#doInclude(java.lang.String)}.
-     * @throws IOException If something goes wrong.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#doInclude(java.lang.String)}.
+     * 
+     * @throws IOException      If something goes wrong.
      * @throws ServletException If something goes wrong.
      */
     @Test(expected = IOException.class)
@@ -211,7 +229,8 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#getHeader()}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#getHeader()}.
      */
     @Test
     public void testGetHeader() {
@@ -219,7 +238,8 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#getHeader()}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#getHeader()}.
      */
     @Test
     public void testGetResponseHeaders() {
@@ -227,7 +247,8 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#getHeaderValues()}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#getHeaderValues()}.
      */
     @Test
     public void testGetHeaderValues() {
@@ -235,7 +256,8 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#getParam()}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#getParam()}.
      */
     @Test
     public void testGetParam() {
@@ -243,7 +265,8 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#getParamValues()}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#getParamValues()}.
      */
     @SuppressWarnings("unchecked")
     @Test
@@ -258,7 +281,8 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#getRequestScope()}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#getRequestScope()}.
      */
     @Test
     public void testGetRequestScope() {
@@ -266,7 +290,8 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#getSessionScope()}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#getSessionScope()}.
      */
     @Test
     public void testGetSessionScope() {
@@ -274,7 +299,9 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#getOutputStream()}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#getOutputStream()}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -289,7 +316,9 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#getWriter()}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#getWriter()}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -304,7 +333,9 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#getPrintWriter()}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#getPrintWriter()}.
+     * 
      * @throws IOException If something goes wrong.
      */
     @Test
@@ -319,7 +350,8 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#isResponseCommitted()}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#isResponseCommitted()}.
      */
     @Test
     public void testIsResponseCommitted() {
@@ -331,7 +363,8 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#setContentType(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#setContentType(java.lang.String)}.
      */
     @Test
     public void testSetContentType() {
@@ -343,7 +376,8 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#getRequestLocale()}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#getRequestLocale()}.
      */
     @Test
     public void testGetRequestLocale() {
@@ -357,7 +391,8 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#getRequest()}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#getRequest()}.
      */
     @Test
     public void testGetRequest() {
@@ -367,7 +402,8 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#getResponse()}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#getResponse()}.
      */
     @Test
     public void testGetResponse() {
@@ -377,7 +413,8 @@ public class ServletRequestTest {
     }
 
     /**
-     * Test method for {@link org.apache.tiles.request.servlet.ServletRequest#isUserInRole(java.lang.String)}.
+     * Test method for
+     * {@link org.apache.tiles.request.servlet.ServletRequest#isUserInRole(java.lang.String)}.
      */
     @Test
     public void testIsUserInRole() {

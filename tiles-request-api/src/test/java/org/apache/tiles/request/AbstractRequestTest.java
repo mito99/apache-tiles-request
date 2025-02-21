@@ -20,8 +20,12 @@
  */
 package org.apache.tiles.request;
 
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMockBuilder;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,7 +40,8 @@ import org.junit.Test;
 public class AbstractRequestTest {
 
     /**
-     * Test method for {@link org.apache.tiles.request.AbstractRequest#setForceInclude(boolean)}.
+     * Test method for
+     * {@link org.apache.tiles.request.AbstractRequest#setForceInclude(boolean)}.
      */
     @Test
     public void testSetForceInclude() {

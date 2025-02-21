@@ -20,8 +20,10 @@
  */
 package org.apache.tiles.request.render;
 
-import static org.easymock.classextension.EasyMock.*;
-import static org.junit.Assert.*;
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertSame;
 
 import org.apache.tiles.request.ApplicationContext;
 import org.junit.Before;
@@ -106,6 +108,7 @@ public class BasicRendererFactoryTest {
      */
     @Test
     public void testInitializeRenderer() {
-        // TODO This will be removed in future, only named renderers should be available.
+        // TODO This will be removed in future, only named renderers should be
+        // available.
     }
 }
